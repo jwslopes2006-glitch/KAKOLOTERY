@@ -1,10 +1,11 @@
-const CACHE_NAME = "kakolottery-20261007";
+const CACHE_NAME = "kakolottery-resumos-v2-20261008";
 
 const APP_SHELL = [
   "./",
   "./index.html",
   "./manifest.json",
   "./sw.js",
+  "./kakolottery-resumo-template.png",
   "./icons/icon-192.png",
   "./icons/icon-512.png"
 ];
@@ -36,8 +37,6 @@ self.addEventListener("fetch", (event) => {
 
   if (request.method !== "GET") return;
 
-  // Navegação: tenta buscar a versão nova na internet.
-  // Sem internet, usa a versão armazenada no cache.
   if (request.mode === "navigate") {
     event.respondWith(
       fetch(request)
@@ -45,8 +44,7 @@ self.addEventListener("fetch", (event) => {
           const copy = response.clone();
 
           event.waitUntil(
-            caches
-              .open(CACHE_NAME)
+            caches.open(CACHE_NAME)
               .then((cache) => cache.put("./index.html", copy))
           );
 
@@ -58,7 +56,6 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Só trata arquivos do próprio KAKOLOTERY.
   if (new URL(request.url).origin !== self.location.origin) return;
 
   event.respondWith(
@@ -69,8 +66,7 @@ self.addEventListener("fetch", (event) => {
             const copy = response.clone();
 
             event.waitUntil(
-              caches
-                .open(CACHE_NAME)
+              caches.open(CACHE_NAME)
                 .then((cache) => cache.put(request, copy))
             );
           }
