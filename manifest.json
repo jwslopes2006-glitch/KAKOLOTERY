@@ -1,0 +1,21 @@
+{
+  "name": "KAKOLOTERY",
+  "short_name": "KAKOLOTERY",
+  "description": "Sorteio de times, placar esportivo e resumos estatísticos compartilháveis.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone"],
+  "background_color": "#08070c",
+  "theme_color": "#6d20d7",
+  "orientation": "any",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "categories": ["sports", "utilities"],
+  "icons": [
+    {"src":"./icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},
+    {"src":"./icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any"}
+  ]
+}
